@@ -5,7 +5,6 @@ library(dplyr)
 library(ggplot2)
 
 
-
 # Load the data
 methadone <- read.csv("methadone.csv")
 
