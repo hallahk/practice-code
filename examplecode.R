@@ -25,7 +25,7 @@ surv_obj <- Surv(time = methadone$time, event = methadone$event)
 
 # Fit models
 fit_exp <- flexsurvreg(surv_obj ~ 1, dist = "exponential")
-fit_weibull <- flexsurvreg(surv_obj ~ 2, dist = "weibull")
+fit_weibull <- flexsurvreg(surv_obj ~ 1, dist = "weibull")
 fit_gengamma <- flexsurvreg(surv_obj ~ 1, dist = "gengamma")
 
 
