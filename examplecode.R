@@ -3,7 +3,10 @@ library(survival)
 library(flexsurv)
 library(dplyr)
 library(ggplot2)
-# removed loading data lol
+
+
+# Load the data
+methadone <- read.csv("methadone.csv")
 
 # (a) Compute average follow-up time and proportion censored
 # Note: 'event' is assumed to be 1 = event occurred, 0 = censored
@@ -37,7 +40,7 @@ pred_gengamma <- summary(fit_gengamma, t = time_grid, type = "survival")[[1]]
 
 # Combine into one data frame
 df_models <- bind_rows(
-  data.frame(time = pred_exp$time, surv = pred_exp$est, model = "Exponential"), # removed weibull model
+  data.frame(time = pred_exp$time, surv = pred_exp$est, model = "Exponential"),
   data.frame(time = pred_gengamma$time, surv = pred_gengamma$est, model = "Generalized Gamma")
 )
 
